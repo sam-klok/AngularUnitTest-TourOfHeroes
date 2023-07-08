@@ -8,6 +8,7 @@ import { RouterTestingModule } from "@angular/router/testing";
 
 import { of } from "rxjs";
 import { Hero } from "../hero";
+import { By } from "@angular/platform-browser";
 
 describe('HeroesComponent (shallow test)',()=>{
     let fixture: ComponentFixture<HeroesComponent>;
@@ -39,9 +40,14 @@ describe('HeroesComponent (shallow test)',()=>{
     it('should set heroes from service',()=>{
         mockHeroService.getHeroes.and.returnValue(of(HEROES));
         fixture.detectChanges();
-
         expect(fixture.componentInstance.heroes.length).toBe(3);
         //expect(true).toBe(true);  // dummy test
+    })
+
+    it('should have 3 li elements',()=>{
+        mockHeroService.getHeroes.and.returnValue(of(HEROES));
+        fixture.detectChanges();
+        expect(fixture.debugElement.queryAll(By.css('li')).length).toBe(3);
     })
 
 })
