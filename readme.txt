@@ -19,3 +19,9 @@ https://angular.io/guide/pipes
 
 2. Exponentiation (math)
 https://en.wikipedia.org/wiki/Exponentiation
+
+3. If you meet Error: 
+NG0303: Can't bind to 'routerLink' since it isn't a known property of 'a' (used in the 'HeroesComponent' component template).
+Angular Test: NullInjectorError: No provider for ActivatedRoute
+then add RouterTestingModule (not RouterModule)
+https://stackoverflow.com/questions/53654341/angular-7-test-nullinjectorerror-no-provider-for-activatedroute

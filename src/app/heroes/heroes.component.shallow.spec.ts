@@ -2,6 +2,10 @@ import { ComponentFixture, TestBed } from "@angular/core/testing"
 import { HeroesComponent } from "./heroes.component"
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { HeroService } from "../hero.service";
+
+//import { RouterModule } from "@angular/router";
+import { RouterTestingModule } from "@angular/router/testing";
+
 import { of } from "rxjs";
 import { Hero } from "../hero";
 
@@ -16,14 +20,16 @@ describe('HeroesComponent (shallow test)',()=>{
             { id: 2, name: 'Wonder Woman' },
             { id: 3, name: 'Super Programmierer' },
           ];
-          
 
         mockHeroService = jasmine.createSpyObj(['getHeroes','addHero','deleteHero']);
 
         TestBed.configureTestingModule({
             declarations: [HeroesComponent],
+            imports: [RouterTestingModule],
             providers: [{ provide: HeroService, useValue: mockHeroService}],
-            schemas: [NO_ERRORS_SCHEMA]
+
+            // we need to mock child compoenet to avoid using no error schema
+            //schemas: [NO_ERRORS_SCHEMA]  
         })
 
         fixture = TestBed.createComponent(HeroesComponent);
