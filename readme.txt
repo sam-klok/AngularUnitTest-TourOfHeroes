@@ -25,3 +25,14 @@ NG0303: Can't bind to 'routerLink' since it isn't a known property of 'a' (used 
 Angular Test: NullInjectorError: No provider for ActivatedRoute
 then add RouterTestingModule (not RouterModule)
 https://stackoverflow.com/questions/53654341/angular-7-test-nullinjectorerror-no-provider-for-activatedroute
+
+4. testing asynchronious calls with functions below:
+https://angular.io/api/core/testing/fakeAsync
+https://angular.io/api/core/testing/tick
+https://angular.io/api/core/testing/flush
+https://angular.io/api/core/testing/waitForAsync
+https://angular.io/api/core/testing/ComponentFixture    look at whenStable()
+
+5. Code Coverage report
+ ng test --no-watch --code-coverage
+ 
